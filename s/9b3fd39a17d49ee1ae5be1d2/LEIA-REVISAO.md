@@ -1,4 +1,4 @@
-# App da equipe Larmar: onde revisar
+# App da equipe Atleta: onde revisar
 
 Todo o texto clínico está em `content.js`. Não precisa mexer em `app.js`, `index.html` nem `style.css`.
 

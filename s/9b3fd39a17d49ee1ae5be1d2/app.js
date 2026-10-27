@@ -1,5 +1,5 @@
 // Lógica do app. O texto clínico fica em content.js.
-const C=CONTENT,KEY='larmar-equipe-ficha',KC='larmar-equipe-check';
+const C=CONTENT,KEY='atleta-equipe-ficha',KC='atleta-equipe-check';
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const inl=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/PENDENTE/g,'<span class="pend">PENDENTE</span>');
 function md(t){let h='',L=t.split('\n'),i=0,list=null;const close=()=>{if(list){h+='</'+list+'>';list=null}};
@@ -20,7 +20,7 @@ retorno:()=>{const d=JSON.parse(localStorage.getItem(KC)||'{}'),n=C.retorno.crit
 emerg:()=>`<h1>Sinais de <em>emergência</em></h1><div class="card warn">${md(C.emergencia.md)}</div>`,
 carta:()=>`<h1>Carta ao <em>médico</em></h1><span class="rasc">RASCUNHO</span><div class="card">${md(C.carta.md_pt)}</div><div class="card">${md(C.carta.md_en)}</div>`,
 staff:()=>`<h1>Mensagem ao <em>staff</em></h1><span class="rasc">RASCUNHO</span><p class="muted">${inl(C.staff.aviso)}</p><div class="card">${md('## pt-BR\n'+C.staff.md_pt)}</div><div class="card">${md('## EN\n'+C.staff.md_en)}</div>`,
-pac:()=>`<h1>App do <em>paciente</em></h1><p>Versão em inglês com o programa de casa do ${C.meta.paciente}.</p><a class="btn" href="${C.meta.app_paciente}" target="_blank" rel="noopener noreferrer">Abrir app do paciente</a>`};
+pac:()=>`<h1>App do <em>paciente</em></h1><p>Versão em inglês com o programa de casa do atleta.</p><a class="btn" href="${C.meta.app_paciente}" target="_blank" rel="noopener noreferrer">Abrir app do paciente</a>`};
 function go(t){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));main.innerHTML=V[t]();scrollTo(0,0);location.hash=t;
  const f=document.getElementById('f');if(f)f.oninput=()=>{const o={};new FormData(f).forEach((v,k)=>o[k]=v);localStorage.setItem(KEY,JSON.stringify(o))}}
 function ck(i,v){const d=JSON.parse(localStorage.getItem(KC)||'{}');d[i]=v;localStorage.setItem(KC,JSON.stringify(d));go('retorno')}
